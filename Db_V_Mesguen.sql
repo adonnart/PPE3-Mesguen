@@ -1,3 +1,4 @@
+
 /* ------------------- BASE ------------------- */ 
 /* Creation de la base */
 Create DATABASE VBMESGUEN;
