@@ -1,0 +1,23 @@
+
+champs et tables :
+   commande :
+    -idcommande
+    -nbproduits_total (total calculé a partir des differents produits de la commande)
+    -idclient (cle etrangere de la table client)
+    -lieu depart (cle etrangere de la table lieu)
+    -lieu arrivée (cle etrangere de la table lieu)
+    
+   produits commande :
+    -idcommande (cle etrangere)
+    -idproduit (cle etrangere de la table produits)
+    -nbproduit (renseigné pendant la creation de la commande)
+   
+   autre : 
+    -nomclient
+    -nomproduit
+    -nomlieu
+    
+Si je me rend compte qu'il manque autre chose je mettrai le fichier à jour.
+ 
+  
+ 
