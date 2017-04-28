@@ -26,7 +26,7 @@ Public Class modifClient
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
         myAdapter.Fill(donnee)
-        nomPdtModif.DataSource = donnee
+        nomCliModif.DataSource = donnee
     End Sub
 
     'Enregistrement du client
