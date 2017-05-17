@@ -1,0 +1,35 @@
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.Resources.resources
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10 WINFORM.vbproj.GenerateResource.Cache
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\bin\Debug\TP10 WINFORM.exe
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\bin\Debug\TP10 WINFORM.pdb
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\bin\Debug\TP10 WINFORM.xml
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10 WINFORM.exe
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10 WINFORM.xml
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10 WINFORM.pdb
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10 WINFORM.vbprojResolveAssemblyReference.cache
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10 WINFORM.exe
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10 WINFORM.xml
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10 WINFORM.pdb
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10 WINFORM.vbprojResolveAssemblyReference.cache
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.CU01.resources
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.CU02_choix.resources
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.CU03_commande.resources
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.Resources.resources
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10 WINFORM.vbproj.GenerateResource.Cache
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\bin\Debug\TP10 WINFORM.exe
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\bin\Debug\TP10 WINFORM.pdb
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\bin\Debug\TP10 WINFORM.xml
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.CU4_produits.resources
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.CU5_clients.resources
+H:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.CU03_listecommande.resources
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.CU01.resources
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.CU02_choix.resources
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.CU03_commande.resources
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.CU03_listecommande.resources
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.CU03_modif_commande.resources
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.affichProduit.resources
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.Form1.resources
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.modifProduit.resources
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.modifRemorque.resources
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.CU04_modif_produit.resources
+I:\BTS SIO\2eme Année\cours bts sio\SLAM4\VB\TP10 WINFORM\TP10 WINFORM\obj\x86\Debug\TP10_WINFORM.CU05_modif_client.resources
