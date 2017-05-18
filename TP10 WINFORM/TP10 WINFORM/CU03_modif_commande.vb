@@ -272,7 +272,7 @@ Public Class CU03_modif_commande
                 myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
                 myAdapter.Fill(donnee)
                 arrivee = donnee.Rows(0)(0).ToString
-                depart = GridVilleDepart.SelectedRows(0).Cells(1).Value.ToString
+                depart = GridVilleDepart.SelectedRows(0).Cells(0).Value.ToString
 
             ElseIf selectedRowCount3 = 0 And selectedRowCount4 > 0 Then
                 Dim query As String = "SELECT LIEUDEPART from commande where COMMANDEID = " & no_commande
@@ -281,7 +281,7 @@ Public Class CU03_modif_commande
                 myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
                 myAdapter.Fill(donnee)
                 depart = donnee.Rows(0)(0).ToString
-                arrivee = GridVilleArrivee.SelectedRows(0).Cells(1).Value.ToString
+                arrivee = GridVilleArrivee.SelectedRows(0).Cells(0).Value.ToString
 
             ElseIf selectedRowCount3 = 0 And selectedRowCount4 = 0 Then
                 Dim query As String = "SELECT LIEUDEPART,LIEUARRIVEE from commande where COMMANDEID = " & no_commande
