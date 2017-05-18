@@ -13,7 +13,6 @@
     Private Sub CU02_choix_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         connString = "Driver={Microsoft ODBC for Oracle};CONNECTSTRING=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.0.23.80)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)));Uid=mesguen3;Pwd=Estran;"
-
         myConnection.ConnectionString = connString
 
         Try
@@ -35,10 +34,6 @@
 
     End Sub
 
-    Private Sub noClient()
-        MessageBox.Show("Veuillez sélectionner un client.")
-    End Sub
-
     'Commandes'
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
 
@@ -51,7 +46,7 @@
             commande.Show()
             Me.Close()
         Else
-            noClient()
+            MessageBox.Show("Veuillez sélectionner un client.")
             Exit Sub
         End If
 
@@ -60,27 +55,26 @@
     'Produits'
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
 
-            Dim produits As New CU04_modif_produit
-            produits.Show()
-            Me.Close()
+        Dim produits As New CU04_modif_produit
+        produits.Show()
+        Me.Close()
 
     End Sub
 
     'Clients'
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
 
-            Dim clients As New CU05_modif_client
-            clients.Show()
-            Me.Close()
+        Dim clients As New CU05_modif_client
+        clients.Show()
+        Me.Close()
  
     End Sub
 
     'Déconnexion'
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
+            
         Me.Close()
+            
     End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
+        
 End Class
