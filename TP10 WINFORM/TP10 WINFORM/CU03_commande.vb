@@ -9,10 +9,18 @@
     Dim connString As String
     Dim donnee As DataTable
     Dim temp As Integer
-   
 
     Private Sub Form_Open(sender As System.Object, e As System.EventArgs) Handles Me.Load
+        
+        connString = "Driver={Microsoft ODBC for Oracle};CONNECTSTRING=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.0.23.80)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)));Uid=mesguen3;Pwd=Estran;"
+        myConnection.ConnectionString = connString
 
+        Try
+            myConnection.Open()
+        Catch ex As Odbc.OdbcException
+            MessageBox.Show(ex.Message)
+        End Try
+        
         Dim col1 As New DataGridViewTextBoxColumn
         col1.DataPropertyName = "PropertyName"
         col1.HeaderText = "Produit"
@@ -24,22 +32,6 @@
         col4.HeaderText = "nb palettes"
         col4.Name = "nb palettes"
         Panier.Columns.Add(col4)
-
-
-        'CU02_choix.connectSub()
-
-        connString = "Driver={Microsoft ODBC for Oracle};CONNECTSTRING=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.0.23.80)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)));Uid=mesguen3;Pwd=Estran;"
-
-        myConnection.ConnectionString = connString
-
-        Try
-            myConnection.Open()
-
-            'MessageBox.Show("ca marche")
-        Catch ex As Odbc.OdbcException
-            MessageBox.Show(ex.Message)
-        End Try
-
 
         Dim query As String = "SELECT * FROM PRODUIT"
         donnee = New DataTable
@@ -62,7 +54,6 @@
         myAdapter.Fill(donnee)
         GridVilleArrivee.DataSource = donnee
 
-
         GridListeProduits.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         Panier.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         GridVilleDepart.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -70,17 +61,10 @@
 
     End Sub
 
-
-
-
-    Private Sub Recherche_TextChanged(sender As System.Object, e As System.EventArgs) Handles Recherche.TextChanged
-
-    End Sub
-
     Private Sub ConfirmeRechercheProduits_Click(sender As System.Object, e As System.EventArgs)
 
         Dim nom_prod As Integer = Recherche.Text
-        Dim query As String = "SELECT * FROM PRODUIT where NOMPRODUIT = " & nom_prod
+        Dim query As String = "SELECT * FROM PRODUIT WHERE NOMPRODUIT = " & nom_prod
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
@@ -89,23 +73,16 @@
 
     End Sub
 
-    Private Sub GridListeProduits_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs)
-
-    End Sub
-
-
-
-
-    Private Sub NbPalettes_TextChanged(sender As System.Object, e As System.EventArgs)
-
-    End Sub
-
     Private Sub PalettesMoins_Click(sender As System.Object, e As System.EventArgs) Handles PalettesMoins.Click
+        
         NbPalettes.Text -= 1
+        
     End Sub
 
     Private Sub PalettesPlus_Click(sender As System.Object, e As System.EventArgs) Handles PalettesPlus.Click
+        
         NbPalettes.Text += 1
+        
     End Sub
 
     Private Sub AjouterProduit_Click(sender As System.Object, e As System.EventArgs) Handles AjouterProduit.Click
@@ -113,10 +90,6 @@
         Dim sb As New System.Text.StringBuilder()
         sb.Append(GridListeProduits.SelectedRows(0).Cells(0).Value.ToString)
         Panier.Rows.Add(New String() {sb.ToString, NbPalettes.Text})
-
-    End Sub
-
-    Private Sub Panier_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs)
 
     End Sub
 
@@ -128,40 +101,22 @@
 
     End Sub
 
-
-
-
-    Private Sub RechercheVilleDepart_TextChanged(sender As System.Object, e As System.EventArgs)
-
-    End Sub
-
     Private Sub ConfirmeRechercheVD_Click(sender As System.Object, e As System.EventArgs) Handles ConfirmeRechercheVD.Click
 
         Dim nom_ville As String = RechercheVilleDepart.Text
-        Dim query As String = "SELECT LIEUID,LIEUNOM FROM LIEU where LIEUNOM = '" & nom_ville & "'"
+        Dim query As String = "SELECT LIEUID,LIEUNOM FROM LIEU WHERE LIEUNOM = '" & nom_ville & "'"
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
         myAdapter.Fill(donnee)
         GridVilleDepart.DataSource = donnee
-
-    End Sub
-
-    Private Sub GridVilleDepart_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs)
-
-    End Sub
-
-
-
-
-    Private Sub RechercheVilleArrivee_TextChanged(sender As System.Object, e As System.EventArgs)
 
     End Sub
 
     Private Sub ConfirmeRechercheVA_Click(sender As System.Object, e As System.EventArgs) Handles ConfirmeRechercheVA.Click
 
         Dim nom_ville As String = RechercheVilleDepart.Text.ToUpper
-        Dim query As String = "SELECT LIEUID,LIEUNOM FROM LIEU where LIEUNOM = '" & nom_ville & "'"
+        Dim query As String = "SELECT LIEUID,LIEUNOM FROM LIEU WHERE LIEUNOM = '" & nom_ville & "'"
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
@@ -170,16 +125,10 @@
 
     End Sub
 
-    Private Sub GridVilleArrivee_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles GridVilleArrivee.CellContentClick
-
-    End Sub
-
-
-
-
     Private Sub ConfirmerCommande_Click(sender As System.Object, e As System.EventArgs) Handles ConfirmerCommande.Click
+    
         Dim response As MsgBoxResult
-        response = MsgBox("Voulez vous Confirmer la prise de commande?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm")
+        response = MsgBox("Voulez vous confirmer la prise de commande ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm")
         If response = MsgBoxResult.Yes Then
 
             Dim info As String
@@ -223,29 +172,28 @@
             If selectedRowCount3 > 0 And selectedRowCount4 > 0 Then
                 depart = GridVilleDepart.SelectedRows(0).Cells(0).Value.ToString
                 arrivee = GridVilleArrivee.SelectedRows(0).Cells(0).Value.ToString
-
             Else
-                MessageBox.Show("Veuillez selectionner une ville de depart et d'arrivée.")
+                MessageBox.Show("Sélectionnez une ville de départ et d'arrivée.")
                 Exit Sub
             End If
 
             Dim nom_client As String = Label2.Text
-            Dim query As String = "SELECT CLIID from CLIENT where CLINOM = '" & nom_client & "'"
+            Dim query As String = "SELECT CLIID FROM CLIENT WHERE CLINOM = '" & nom_client & "'"
             donnee = New DataTable
             myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
             myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
             myAdapter.Fill(donnee)
             Dim cliid As Integer = donnee.Rows(0)(0)
 
-            info = "INSERT INTO commande (NBPRODUITS_TOTAL,TRNNUM,CLIID,LIEUDEPART,LIEUARRIVEE)" & _
-                "values (" & nb_palettes_tot & ",1," & cliid & ",'" & arrivee & "','" & depart & "')"
-            'MessageBox.Show(info)
+            info = "INSERT INTO COMMANDE (NBPRODUITS_TOTAL,TRNNUM,CLIID,LIEUDEPART,LIEUARRIVEE)" & _
+                   "values (" & nb_palettes_tot & ",1," & cliid & ",'" & arrivee & "','" & depart & "')"
+
             Dim da As New Odbc.OdbcDataAdapter
             Dim cmd As New Odbc.OdbcCommand(info, myConnection)
             da.InsertCommand = cmd
             da.InsertCommand.ExecuteNonQuery()
 
-            query = "SELECT max(COMMANDEID) from commande"
+            query = "SELECT MAX(COMMANDEID) FROM COMMANDE"
             donnee = New DataTable
             myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
             myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
@@ -254,19 +202,18 @@
             Dim MaxId As Integer = donnee.Rows(0)(0)
 
             For i As Integer = 0 To Panier.Rows.Count - 2
-
                 num_prod = Panier.Rows(i).Cells(0).Value
                 nb_palettes = Panier.Rows(i).Cells(1).Value
-                info = "INSERT INTO COMMANDE_PRODUIT values " & _
+                info = "INSERT INTO COMMANDE_PRODUIT VALUES " & _
                 "(" & MaxId & " ," & num_prod & "," & nb_palettes & ")"
-                'MessageBox.Show(info)
+
                 da = New Odbc.OdbcDataAdapter
                 cmd = New Odbc.OdbcCommand(info, myConnection)
                 da.InsertCommand = cmd
                 da.InsertCommand.ExecuteNonQuery()
             Next
 
-            MessageBox.Show("Insertion effectuée")
+            MessageBox.Show("Insertion effectuée.")
 
             Dim choix As New CU02_choix
             choix.Show()
@@ -274,13 +221,15 @@
 
         ElseIf response = MsgBoxResult.No Then
             Exit Sub
+        
         End If
+    
     End Sub
 
     Private Sub AnnulerCommande_Click(sender As System.Object, e As System.EventArgs) Handles AnnulerCommande.Click
 
         Dim response As MsgBoxResult
-        response = MsgBox("Voulez vous arreter la prise de commande?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm")
+        response = MsgBox("Voulez vous arrêter la prise de commande ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm")
         If response = MsgBoxResult.Yes Then
             Dim commande As New CU03_listecommande
             commande.Show()
@@ -289,15 +238,7 @@
         ElseIf response = MsgBoxResult.No Then
             Exit Sub
         End If
+        
     End Sub
 
-   
-
-    Private Sub GridListeProduits_CellContentClick_1(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles GridListeProduits.CellContentClick
-
-    End Sub
-
-    Private Sub ConfirmeRechercheProduits_Click_1(sender As System.Object, e As System.EventArgs) Handles ConfirmeRechercheProduits.Click
-
-    End Sub
 End Class
