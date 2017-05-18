@@ -1,4 +1,4 @@
-﻿Public Class CU03_modif_commande
+Public Class CU03_modif_commande
 
     Dim myConnection As New Odbc.OdbcConnection
     Dim myCommand As New Odbc.OdbcCommand
@@ -39,9 +39,9 @@
 
         Try
             myConnection.Open()
-
             'MessageBox.Show("ca marche")
         Catch ex As Odbc.OdbcException
+
             MessageBox.Show(ex.Message)
         End Try
 
@@ -253,6 +253,7 @@
             RowCount2 = NouveauPanier.Rows.Count
             If RowCount2 > 0 Then
                 For i As Integer = 0 To Panier.Rows.Count - 2
+                    MessageBox.Show(i)
                     nb_palettes_tot += NouveauPanier.Rows(i).Cells(1).Value
                 Next
             End If
@@ -261,8 +262,8 @@
             Dim selectedRowCount4 As Integer = GridVilleArrivee.Rows.GetRowCount(DataGridViewElementStates.Selected)
 
             If selectedRowCount3 > 0 And selectedRowCount4 > 0 Then
-                depart = GridVilleDepart.SelectedRows(0).Cells(1).Value.ToString
-                arrivee = GridVilleArrivee.SelectedRows(0).Cells(1).Value.ToString
+                depart = GridVilleDepart.SelectedRows(0).Cells(0).Value.ToString
+                arrivee = GridVilleArrivee.SelectedRows(0).Cells(0).Value.ToString
 
             ElseIf selectedRowCount3 > 0 And selectedRowCount4 = 0 Then
                 Dim query As String = "SELECT LIEUARRIVEE from commande where COMMANDEID = " & no_commande
@@ -321,13 +322,33 @@
 
                     num_prod = NouveauPanier.Rows(i).Cells(0).Value
                     nb_palettes = NouveauPanier.Rows(i).Cells(1).Value
-                    info = "INSERT INTO COMMANDE_PRODUIT values " & _
-                    "(" & no_commande & " ," & num_prod & "," & nb_palettes & ")"
-                    'MessageBox.Show(info)
-                    da = New Odbc.OdbcDataAdapter
-                    cmd = New Odbc.OdbcCommand(info, myConnection)
-                    da.InsertCommand = cmd
-                    da.InsertCommand.ExecuteNonQuery()
+
+                    Dim query As String = "SELECT COMMANDEID,PRODUITID from COMMANDE_PRODUIT where COMMANDEID = " & no_commande & " and PRODUITID = " & num_prod
+                    donnee = New DataTable
+                    myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
+                    myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
+                    myAdapter.Fill(donnee)
+
+                    If donnee Is Nothing Then
+
+                        info = "INSERT INTO COMMANDE_PRODUIT values " & _
+                        "(" & no_commande & " ," & num_prod & "," & nb_palettes & ")"
+                        da = New Odbc.OdbcDataAdapter
+                        cmd = New Odbc.OdbcCommand(info, myConnection)
+                        da.InsertCommand = cmd
+                        da.InsertCommand.ExecuteNonQuery()
+
+                    Else
+
+                        info = "update COMMANDE_PRODUIT set nbproduit = " & nb_palettes & "where COMMANDEID = " & no_commande & " and PRODUITID = " & num_prod
+                        da = New Odbc.OdbcDataAdapter
+                        cmd = New Odbc.OdbcCommand(info, myConnection)
+                        da.InsertCommand = cmd
+                        da.InsertCommand.ExecuteNonQuery()
+
+                    End If
+
+
 
                 Next
             End If
