@@ -10,9 +10,17 @@ Public Class CU03_modif_commande
     Dim donnee As DataTable
     Dim temp As Integer
 
-
     Private Sub Form_Open(sender As System.Object, e As System.EventArgs) Handles Me.Load
 
+        connString = "Driver={Microsoft ODBC for Oracle};CONNECTSTRING=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.0.23.80)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)));Uid=mesguen3;Pwd=Estran;"
+        myConnection.ConnectionString = connString
+
+        Try
+            myConnection.Open()
+        Catch ex As Odbc.OdbcException
+            MessageBox.Show(ex.Message)
+        End Try
+        
         Dim col1 As New DataGridViewTextBoxColumn
         col1.DataPropertyName = "PropertyName"
         col1.HeaderText = "produit"
@@ -30,21 +38,6 @@ Public Class CU03_modif_commande
         col3.HeaderText = "idproduit"
         col3.Name = "idproduit"
         produitsSuppr.Columns.Add(col3)
-
-        'CU02_choix.connectSub()
-
-        connString = "Driver={Microsoft ODBC for Oracle};CONNECTSTRING=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.0.23.80)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)));Uid=mesguen3;Pwd=Estran;"
-
-        myConnection.ConnectionString = connString
-
-        Try
-            myConnection.Open()
-            'MessageBox.Show("ca marche")
-        Catch ex As Odbc.OdbcException
-
-            MessageBox.Show(ex.Message)
-        End Try
-
 
         Dim query As String = "SELECT * FROM PRODUIT"
         donnee = New DataTable
@@ -68,13 +61,12 @@ Public Class CU03_modif_commande
         GridVilleArrivee.DataSource = donnee
 
         Dim id_commande As String = Label4.Text
-        Dim query4 As String = "SELECT PRODUITID,NBPRODUIT FROM COMMANDE_PRODUIT where COMMANDEID = " & id_commande
+        Dim query4 As String = "SELECT PRODUITID,NBPRODUIT FROM COMMANDE_PRODUIT WHERE COMMANDEID = " & id_commande
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query4, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
         myAdapter.Fill(donnee)
         Panier.DataSource = donnee
-
 
         GridListeProduits.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         Panier.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -83,33 +75,15 @@ Public Class CU03_modif_commande
 
     End Sub
 
-
-
-
-    Private Sub Recherche_TextChanged(sender As System.Object, e As System.EventArgs) Handles Recherche.TextChanged
-
-    End Sub
-
     Private Sub ConfirmeRechercheProduits_Click(sender As System.Object, e As System.EventArgs)
 
         Dim nom_prod As Integer = Recherche.Text
-        Dim query As String = "SELECT * FROM PRODUIT where NOMPRODUIT = " & nom_prod
+        Dim query As String = "SELECT * FROM PRODUIT WHERE NOMPRODUIT = " & nom_prod
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
         myAdapter.Fill(donnee)
         GridListeProduits.DataSource = donnee
-
-    End Sub
-
-    Private Sub GridListeProduits_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs)
-
-    End Sub
-
-
-
-
-    Private Sub NbPalettes_TextChanged(sender As System.Object, e As System.EventArgs)
 
     End Sub
 
@@ -133,87 +107,48 @@ Public Class CU03_modif_commande
 
     End Sub
 
-    Private Sub NouveauPanier_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles NouveauPanier.CellContentClick
-
-    End Sub
-
     Private Sub SupprimerLigneNouveauPanier_Click(sender As System.Object, e As System.EventArgs) Handles SupprimerLigneNouveauPanier.Click
 
         For Each row As DataGridViewRow In Panier.SelectedRows
             NouveauPanier.Rows.Remove(row)
         Next
 
-
-
-    End Sub
-
-
-
-
-    Private Sub Panier_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs)
-
     End Sub
 
     Private Sub SupprimerLignePanier_Click(sender As System.Object, e As System.EventArgs) Handles SupprimerLignePanier.Click
 
         Dim response As MsgBoxResult
-        response = MsgBox("Voulez vous Confirmer la suppression de cette ligne?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm")
+        response = MsgBox("Voulez vous confirmer la suppression de cette ligne ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm")
+    
         If response = MsgBoxResult.Yes Then
-
             Dim sb As New System.Text.StringBuilder()
             sb.Append(Panier.SelectedRows(0).Cells(0).Value.ToString)
             produitsSuppr.Rows.Add(New String() {sb.ToString, NbPalettes.Text})
-
             For Each row As DataGridViewRow In Panier.SelectedRows
                 Panier.Rows.Remove(row)
             Next
-
         ElseIf response = MsgBoxResult.No Then
-
             Exit Sub
-
         End If
-
-    End Sub
-
-    Private Sub produitsSuppr_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles produitsSuppr.CellContentClick
-
-    End Sub
-
-
-
-
-    Private Sub RechercheVilleDepart_TextChanged(sender As System.Object, e As System.EventArgs)
 
     End Sub
 
     Private Sub ConfirmeRechercheVD_Click(sender As System.Object, e As System.EventArgs) Handles ConfirmeRechercheVD.Click
 
         Dim nom_ville As String = RechercheVilleDepart.Text.ToUpper
-        Dim query As String = "SELECT LIEUID,LIEUNOM FROM LIEU where LIEUNOM = '" & nom_ville & "'"
+        Dim query As String = "SELECT LIEUID,LIEUNOM FROM LIEU WHERE LIEUNOM = '" & nom_ville & "'"
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
         myAdapter.Fill(donnee)
         GridVilleDepart.DataSource = donnee
-
-    End Sub
-
-    Private Sub GridVilleDepart_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs)
-
-    End Sub
-
-
-
-
-    Private Sub RechercheVilleArrivee_TextChanged(sender As System.Object, e As System.EventArgs)
 
     End Sub
 
     Private Sub ConfirmeRechercheVA_Click(sender As System.Object, e As System.EventArgs) Handles ConfirmeRechercheVA.Click
 
         Dim nom_ville As String = RechercheVilleDepart.Text.ToUpper
-        Dim query As String = "SELECT LIEUID,LIEUNOM FROM LIEU where LIEUNOM = '" & nom_ville & "'"
+        Dim query As String = "SELECT LIEUID,LIEUNOM FROM LIEU WHERE LIEUNOM = '" & nom_ville & "'"
         donnee = New DataTable
         myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
         myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
@@ -222,16 +157,11 @@ Public Class CU03_modif_commande
 
     End Sub
 
-    Private Sub GridVilleArrivee_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles GridVilleArrivee.CellContentClick
-
-    End Sub
-
-
-
-
     Private Sub ConfirmerCommande_Click(sender As System.Object, e As System.EventArgs) Handles ConfirmerCommande.Click
+    
         Dim response As MsgBoxResult
-        response = MsgBox("Voulez vous Confirmer la modification de commande?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm")
+        response = MsgBox("Voulez vous confirmer la modification de la commande ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm")
+    
         If response = MsgBoxResult.Yes Then
 
             Dim no_commande As String = Label4.Text.Last()
@@ -250,6 +180,7 @@ Public Class CU03_modif_commande
                     nb_palettes_tot += Panier.Rows(i).Cells(1).Value
                 Next
             End If
+    
             RowCount2 = NouveauPanier.Rows.Count
             If RowCount2 > 0 Then
                 For i As Integer = 0 To Panier.Rows.Count - 2
@@ -266,7 +197,7 @@ Public Class CU03_modif_commande
                 arrivee = GridVilleArrivee.SelectedRows(0).Cells(0).Value.ToString
 
             ElseIf selectedRowCount3 > 0 And selectedRowCount4 = 0 Then
-                Dim query As String = "SELECT LIEUARRIVEE from commande where COMMANDEID = " & no_commande
+                Dim query As String = "SELECT LIEUARRIVEE FROM COMMANDE WHERE COMMANDEID = " & no_commande
                 donnee = New DataTable
                 myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
                 myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
@@ -275,7 +206,7 @@ Public Class CU03_modif_commande
                 depart = GridVilleDepart.SelectedRows(0).Cells(0).Value.ToString
 
             ElseIf selectedRowCount3 = 0 And selectedRowCount4 > 0 Then
-                Dim query As String = "SELECT LIEUDEPART from commande where COMMANDEID = " & no_commande
+                Dim query As String = "SELECT LIEUDEPART FROM COMMANDE WHERE COMMANDEID = " & no_commande
                 donnee = New DataTable
                 myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
                 myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
@@ -284,7 +215,7 @@ Public Class CU03_modif_commande
                 arrivee = GridVilleArrivee.SelectedRows(0).Cells(0).Value.ToString
 
             ElseIf selectedRowCount3 = 0 And selectedRowCount4 = 0 Then
-                Dim query As String = "SELECT LIEUDEPART,LIEUARRIVEE from commande where COMMANDEID = " & no_commande
+                Dim query As String = "SELECT LIEUDEPART,LIEUARRIVEE FROM COMMANDE WHERE COMMANDEID = " & no_commande
                 donnee = New DataTable
                 myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
                 myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
@@ -292,11 +223,9 @@ Public Class CU03_modif_commande
                 arrivee = donnee.Rows(0)(0).ToString
                 depart = donnee.Rows(0)(1).ToString
 
-
             End If
 
-
-            info = "update COMMANDE set NBPRODUITS_TOTAL = " & nb_palettes_tot & ", LIEUDEPART = '" & depart & "', LIEUARRIVEE = '" & arrivee & "' where COMMANDEID = " & no_commande
+            info = "UPDATE COMMANDE SET NBPRODUITS_TOTAL = " & nb_palettes_tot & ", LIEUDEPART = '" & depart & "', LIEUARRIVEE = '" & arrivee & "' WHERE COMMANDEID = " & no_commande
             MessageBox.Show(info)
             Dim da As New Odbc.OdbcDataAdapter
             Dim cmd As New Odbc.OdbcCommand(info, myConnection)
@@ -305,15 +234,13 @@ Public Class CU03_modif_commande
 
             If produitsSuppr.Rows.Count <= 2 Then
                 For i As Integer = 0 To produitsSuppr.Rows.Count - 2
-
-                    'MessageBox.Show(i)
-                    info = "delete from COMMANDE_PRODUIT where COMMANDEID = " & no_commande & " and PRODUITID = " & produitsSuppr.Rows(i).Cells(0).Value
-
+    
+                    info = "DELETE FROM COMMANDE_PRODUIT WHERE COMMANDEID = " & no_commande & " AND PRODUITID = " & produitsSuppr.Rows(i).Cells(0).Value
                     da = New Odbc.OdbcDataAdapter
                     cmd = New Odbc.OdbcCommand(info, myConnection)
                     da.DeleteCommand = cmd
                     da.DeleteCommand.ExecuteNonQuery()
-
+    
                 Next
             End If
 
@@ -323,15 +250,14 @@ Public Class CU03_modif_commande
                     num_prod = NouveauPanier.Rows(i).Cells(0).Value
                     nb_palettes = NouveauPanier.Rows(i).Cells(1).Value
 
-                    Dim query As String = "SELECT COMMANDEID,PRODUITID from COMMANDE_PRODUIT where COMMANDEID = " & no_commande & " and PRODUITID = " & num_prod
+                    Dim query As String = "SELECT COMMANDEID,PRODUITID FROM COMMANDE_PRODUIT WHERE COMMANDEID = " & no_commande & " AND PRODUITID = " & num_prod
                     donnee = New DataTable
                     myAdapter = New Odbc.OdbcDataAdapter(query, myConnection)
                     myBuilder = New Odbc.OdbcCommandBuilder(myAdapter)
                     myAdapter.Fill(donnee)
 
                     If donnee Is Nothing Then
-
-                        info = "INSERT INTO COMMANDE_PRODUIT values " & _
+                        info = "INSERT INTO COMMANDE_PRODUIT VALUES " & _
                         "(" & no_commande & " ," & num_prod & "," & nb_palettes & ")"
                         da = New Odbc.OdbcDataAdapter
                         cmd = New Odbc.OdbcCommand(info, myConnection)
@@ -339,8 +265,7 @@ Public Class CU03_modif_commande
                         da.InsertCommand.ExecuteNonQuery()
 
                     Else
-
-                        info = "update COMMANDE_PRODUIT set nbproduit = " & nb_palettes & "where COMMANDEID = " & no_commande & " and PRODUITID = " & num_prod
+                        info = "UPDATE COMMANDE_PRODUIT SET NBPRODUIT = " & nb_palettes & "WHERE COMMANDEID = " & no_commande & " AND PRODUITID = " & num_prod
                         da = New Odbc.OdbcDataAdapter
                         cmd = New Odbc.OdbcCommand(info, myConnection)
                         da.InsertCommand = cmd
@@ -348,27 +273,25 @@ Public Class CU03_modif_commande
 
                     End If
 
-
-
                 Next
             End If
 
-            MessageBox.Show("Insertion effectuée")
+            MessageBox.Show("Insertion effectuée.")
 
             Dim choix As New CU02_choix
             choix.Show()
             Me.Close()
 
-
         ElseIf response = MsgBoxResult.No Then
             Exit Sub
         End If
+
     End Sub
 
     Private Sub AnnulerCommande_Click(sender As System.Object, e As System.EventArgs) Handles AnnulerCommande.Click
 
         Dim response As MsgBoxResult
-        response = MsgBox("Voulez vous arreter la prise de commande?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm")
+        response = MsgBox("Voulez vous arrêter la prise de commande ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm")
         If response = MsgBoxResult.Yes Then
             Dim commande As New CU03_listecommande
             commande.Show()
@@ -377,6 +300,7 @@ Public Class CU03_modif_commande
         ElseIf response = MsgBoxResult.No Then
             Exit Sub
         End If
+
     End Sub
 
 End Class
