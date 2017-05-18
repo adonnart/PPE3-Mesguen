@@ -10,7 +10,7 @@
     Dim donnee As DataTable
     Dim temp As Integer
 
-    Private Sub Form_Open(sender As System.Object, e As System.EventArgs) Handles Me.Load
+    Private Sub CU03_commande_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         
         connString = "Driver={Microsoft ODBC for Oracle};CONNECTSTRING=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.0.23.80)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)));Uid=mesguen3;Pwd=Estran;"
         myConnection.ConnectionString = connString
