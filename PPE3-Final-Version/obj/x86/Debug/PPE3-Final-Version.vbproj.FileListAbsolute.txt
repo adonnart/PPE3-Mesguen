@@ -1,0 +1,45 @@
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\bin\Debug\PPE3-Final-Version.exe
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\bin\Debug\PPE3-Final-Version.pdb
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\bin\Debug\PPE3-Final-Version.xml
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\obj\x86\Debug\PPE3.CU01.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\obj\x86\Debug\PPE3.CU02_choix.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\obj\x86\Debug\PPE3.CU03_commande.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\obj\x86\Debug\PPE3.CU03_listecommande.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\obj\x86\Debug\PPE3.CU03_modif_commande.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\obj\x86\Debug\PPE3.CU04_modif_produit.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\obj\x86\Debug\PPE3.CU05_modif_client.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\obj\x86\Debug\PPE3.Resources.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\obj\x86\Debug\PPE3-Final-Version.vbproj.GenerateResource.Cache
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\obj\x86\Debug\PPE3-Final-Version.exe
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\obj\x86\Debug\PPE3-Final-Version.xml
+C:\Users\Alexandre\Downloads\PPE3-Final-Version-Test\obj\x86\Debug\PPE3-Final-Version.pdb
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\bin\Debug\PPE3-Final-Version.exe
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\bin\Debug\PPE3-Final-Version.pdb
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\bin\Debug\PPE3-Final-Version.xml
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\obj\x86\Debug\PPE3.CU01.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\obj\x86\Debug\PPE3.CU02_choix.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\obj\x86\Debug\PPE3.CU03_commande.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\obj\x86\Debug\PPE3.CU03_listecommande.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\obj\x86\Debug\PPE3.CU03_modif_commande.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\obj\x86\Debug\PPE3.CU04_modif_produit.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\obj\x86\Debug\PPE3.CU05_modif_client.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\obj\x86\Debug\PPE3.Resources.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\obj\x86\Debug\PPE3-Final-Version.vbproj.GenerateResource.Cache
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\obj\x86\Debug\PPE3-Final-Version.exe
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\obj\x86\Debug\PPE3-Final-Version.xml
+C:\Users\Alexandre\Downloads\PPE3-Final-Version -Test\obj\x86\Debug\PPE3-Final-Version.pdb
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\bin\Debug\PPE3-Final-Version.exe
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\bin\Debug\PPE3-Final-Version.pdb
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\bin\Debug\PPE3-Final-Version.xml
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\obj\x86\Debug\PPE3.CU01.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\obj\x86\Debug\PPE3.CU02_choix.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\obj\x86\Debug\PPE3.CU03_commande.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\obj\x86\Debug\PPE3.CU03_listecommande.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\obj\x86\Debug\PPE3.CU03_modif_commande.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\obj\x86\Debug\PPE3.CU04_modif_produit.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\obj\x86\Debug\PPE3.CU05_modif_client.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\obj\x86\Debug\PPE3.Resources.resources
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\obj\x86\Debug\PPE3-Final-Version.vbproj.GenerateResource.Cache
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\obj\x86\Debug\PPE3-Final-Version.exe
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\obj\x86\Debug\PPE3-Final-Version.xml
+C:\Users\Alexandre\Downloads\PPE3-Final-Version\obj\x86\Debug\PPE3-Final-Version.pdb
